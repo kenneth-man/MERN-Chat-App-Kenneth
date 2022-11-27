@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -21,7 +21,6 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "client",
-	"server"
+    "src"
   ]
 }
