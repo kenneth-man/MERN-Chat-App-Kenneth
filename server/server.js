@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import app from './app.js';
+
+// Dotenv loads environment variables from the .env file into process.env
+// loads the environment variables regardless of what system you are developing on
+dotenv.config({ path: '../.env' });
 
 mongoose
 	.connect(
