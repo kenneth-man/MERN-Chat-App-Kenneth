@@ -2,7 +2,7 @@
 
 <br>
 
-# Main Dependancies:
+# Main Dependencies:
 -	React
 -	Typescript, Javascript
 -	Node
