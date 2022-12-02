@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: #E5FE74;
+    --secondary: #74fe86;
+    --tertiary: #1d400f;
+    --quaternary: #A29EA3;
+    --quinary: #141714;
+    --senary: #000000;
+}
+
+/* avoid repeating same styling for text elements used many times */
+@layer base {
+    h1,h2,h3,h4,h5,h6,p,label {
+        @apply text-white
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        @apply text-center
+    }
+
+    h1 {
+        @apply text-lg font-light sm:text-2xl; 
+    }
+    
+    h2 {
+        @apply text-base font-extralight sm:text-xl;
+    }
+
+    h3 {
+        @apply text-sm font-light sm:text-base;
+    }
+}
+
+/* avoid repeating same groups of styling classes (creating classes using tailwind classes) */
+@layer components {
+    /* .col-space-1 {
+        @apply space-y-1 w-full sm:w-max
+    } */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.1s;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+.text-pri {
+    color: var(--primary);
+}
+
+.text-sec {
+    color: var(--secondary);
+}
+
+.text-ter {
+    color: var(--tertiary);
+}
+
+.text-qua {
+    color: var(--quaternary);
+}
+
+.text-qui {
+    color: var(--quinary);
+}
+
+.text-sen {
+    color: var(--senary);
+}
+
+.bg-pri {
+    background-color: var(--primary);
+}
+
+.bg-sec {
+    background-color: var(--secondary);
+}
+
+.bg-ter {
+    background-color: var(--tertiary);
+}
+
+.bg-qua {
+    background-color: var(--quaternary);
+}
+
+.bg-qui {
+    background-color: var(--quinary);
+}
+
+.bg-sen {
+    background-color: var(--senary);
+}
+
+.line-clamp {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.line-clamp-1 {
+	-webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+	-webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+	-webkit-line-clamp: 3;
+}
+
+.line-clamp-4 {
+	-webkit-line-clamp: 4;
+}
+
+.line-clamp-5 {
+	-webkit-line-clamp: 5;
+}
