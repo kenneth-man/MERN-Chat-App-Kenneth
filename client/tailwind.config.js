@@ -5,8 +5,8 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: ['Open Sans']
-			},
-		},
+			}
+		}
 	},
-	plugins: [],
-}
+	plugins: []
+};
