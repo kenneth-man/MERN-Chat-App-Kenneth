@@ -7,6 +7,7 @@ import Flexbox from './Flexbox';
 import GenericSkeleton from './GenericSkeleton';
 import Input from './Input';
 import Message from './Message';
+import Navbar from './Navbar';
 import Page from './Page';
 
 export {
@@ -19,5 +20,6 @@ export {
 	GenericSkeleton,
 	Input,
 	Message,
+	Navbar,
 	Page
 };
