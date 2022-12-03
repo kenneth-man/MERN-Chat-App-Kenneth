@@ -1,3 +1,4 @@
+import Error404 from './Error404';
 import ForgotPassword from './ForgotPassword';
 import GlobalChat from './GlobalChat';
 import GlobalFeed from './GlobalFeed';
@@ -11,6 +12,7 @@ import Profile from './Profile';
 import Register from './Register';
 
 export {
+	Error404,
 	ForgotPassword,
 	GlobalChat,
 	GlobalFeed,

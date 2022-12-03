@@ -1,3 +1,5 @@
-export interface IPlaceholderProps {
-	
+export interface IRoutesProps {
+	path: string;
+	pathName: string;
+	Element: Function;
 }

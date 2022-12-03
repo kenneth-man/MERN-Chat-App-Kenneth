@@ -10,6 +10,7 @@
 -	MongoDB
 -	Mongoose
 -	Tailwind
+-	Material UI + Icons
 -	Axios
 -	React Router DOM
 
