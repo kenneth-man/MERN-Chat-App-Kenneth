@@ -11,6 +11,7 @@
 -	Mongoose
 -	Tailwind
 -	Axios
+-	React Router DOM
 
 <br>
 
