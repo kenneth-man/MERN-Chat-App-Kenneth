@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { Server } from 'http';
 import app from './app.js';
 
 // Dotenv loads environment variables from the .env file into process.env
@@ -17,7 +18,7 @@ mongoose
 		}
 	);
 
-const server = app.listen(
+const server: Server = app.listen(
 	process.env.PORT,
 	() => console.log(`App running on port ${process.env.PORT}`)
 );
