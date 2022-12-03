@@ -1,0 +1,165 @@
+{
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true		
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"airbnb",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"@typescript-eslint"
+	],
+	"root": true,
+	"rules": {
+		"@typescript-eslint/no-explicit-any": "error",
+		"no-use-before-define": "off",
+		"react/jsx-no-constructed-context-values": "off",
+		"react/react-in-jsx-scope": "off",
+		"newline-before-return": 2,
+		"@typescript-eslint/no-use-before-define": [
+			"error"
+		],
+		"react/jsx-max-props-per-line": [
+			1,
+			{
+				"maximum": 10
+			}
+		],
+		"react/jsx-first-prop-new-line": [
+			2,
+			"multiline"
+		],
+		"react/jsx-props-no-spreading": "off",
+		"brace-style": 0,
+		"indent": [
+			2,
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"import/prefer-default-export": "off",
+		"no-tabs": 0,
+		"import/no-amd": 0,
+		"@typescript-eslint/no-unused-vars": [
+			"warn"
+		],
+		"linebreak-style": 0,
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [
+					".ts",
+					".tsx",
+					".svg"
+				]
+			}
+		],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"js": "never",
+				"mjs": "never",
+				"jsx": "never",
+				"ts": "never",
+				"tsx": "never"
+			}
+		],
+		"camelcase": "off",
+		"semi": "error",
+		"max-len": [
+			"error",
+			{
+				"code": 120
+			}
+		],
+		"comma-dangle": [
+			"error",
+			"never"
+		],
+		"no-mixed-spaces-and-tabs": [
+			"error",
+			"smart-tabs"
+		],
+		"react/jsx-indent": "off",
+		"react/jsx-indent-props": [
+			2,
+			"tab"
+		],
+		"no-unused-expressions": [
+			"error",
+			{
+				"allowShortCircuit": true,
+				"allowTernary": true
+			}
+		],
+		"no-shadow": "off",
+		"react/jsx-wrap-multilines": [
+			"error",
+			{
+				"declaration": "parens-new-line",
+				"assignment": "parens-new-line",
+				"return": "parens-new-line",
+				"arrow": "parens-new-line",
+				"condition": "parens-new-line",
+				"logical": "parens-new-line",
+				"prop": "parens-new-line"
+			}
+		],
+		"@typescript-eslint/typedef": [
+			"error",
+			{
+				"arrayDestructuring": true,
+				"arrowCallSignature": true,
+				"arrowParameter": true,
+				"callSignature": true,
+				"memberVariableDeclaration": true,
+				"parameter": true,
+				"propertyDeclaration": true,
+				"objectDestructuring": true,
+				"variableDeclaration": true,
+				"variableDeclarationIgnoreFunction": true
+			}
+		],
+		"react/function-component-definition": 0,
+		"dot-notation": 0
+	},
+	"ignorePatterns": [
+		"*.svg"
+	],
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx",
+					".d.ts"
+				],
+				"moduleDirectory": [
+					"node_modules",
+					"src/"
+				]
+			}
+		}
+	},
+	"globals": {
+		"JSX": true,
+		"NodeJS": true
+	}
+}

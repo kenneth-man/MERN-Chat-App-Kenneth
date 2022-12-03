@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-console */
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { Server } from 'http';
@@ -25,7 +27,7 @@ const server: Server = app.listen(
 
 process.on(
 	'unhandledRejection',
-	(err) => {
+	(err: unknown) => {
 		console.log(`${err}. Exiting application`);
 
 		// callback ran after server is closed

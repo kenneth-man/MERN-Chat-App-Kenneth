@@ -3,9 +3,7 @@
 	  "target": "esnext",
 	  "module": "NodeNext",
 	  "moduleResolution": "NodeNext",
-	  "sourceMap": true,
-	  "outDir": "./build",
-	  "esModuleInterop": true
+	  "outDir": "./build"
 	},
 	"include": [
 	  "src/**/*.ts"
