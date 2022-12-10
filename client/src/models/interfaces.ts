@@ -3,3 +3,7 @@ export interface IRoutesProps {
 	pathName: string;
 	Element: Function;
 }
+
+export interface IStyleProps {
+	[property: string]: string;
+}

@@ -1,7 +1,35 @@
-// eslint-disable-next-line arrow-body-style
-const PageContainer = (): JSX.Element => {
+import { IContextValuesProps } from '../../context/IContextValuesProps';
+import { useAppContext } from '../../context/useAppContext';
+import { Page } from '../../components';
+import { IPageContainerProps } from './IPageContainerProps';
+
+const PageContainer = ({
+	children, loadingSkeleton, fullWidth, fullHeight, justifyContent,
+	alignItems, backgroundImage, backgroundGradient, backgroundSize,
+	backgroundPosition, backgroundAttachment, backgroundRepeat, className
+}: IPageContainerProps): JSX.Element => {
+	const { loading, error, setError }: IContextValuesProps = useAppContext();
+
 	return (
-		<div>PageContainer</div>
+		<Page
+			loading={loading}
+			loadingSkeleton={loadingSkeleton}
+			error={error}
+			setError={setError}
+			fullWidth={fullWidth}
+			fullHeight={fullHeight}
+			justifyContent={justifyContent}
+			alignItems={alignItems}
+			backgroundImage={backgroundImage}
+			backgroundGradient={backgroundGradient}
+			backgroundSize={backgroundSize}
+			backgroundPosition={backgroundPosition}
+			backgroundAttachment={backgroundAttachment}
+			backgroundRepeat={backgroundRepeat}
+			className={className}
+		>
+			{children}
+		</Page>
 	);
 };
 

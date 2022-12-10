@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
 	createContext, useState
 } from 'react';
 import { IContextProps } from './IContextProps';
+import { IContextValuesProps } from './IContextValuesProps';
 import { IErrorProps } from '../components/Error/IErrorProps';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Context: React.Context<any> = createContext(null);
+export const Context: React.Context<any> = createContext(undefined);
 
 const ContextProvider = ({
 	children
@@ -13,14 +14,16 @@ const ContextProvider = ({
 	const [error, setError]: [IErrorProps | undefined, Function] = useState<IErrorProps | undefined>(undefined);
 	const [loading, setLoading]: [boolean, Function] = useState<boolean>(true);
 
+	const contextValues: IContextValuesProps = {
+		error,
+		setError,
+		loading,
+		setLoading
+	};
+
 	return (
 		<Context.Provider
-			value={{
-				error,
-				setError,
-				loading,
-				setLoading
-			}}
+			value={contextValues}
 		>
 			{children}
 		</Context.Provider>

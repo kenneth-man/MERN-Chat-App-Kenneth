@@ -3,7 +3,7 @@ import Button from './Button';
 import Channel from './Channel';
 import ChannelSkeleton from './ChannelSkeleton';
 import Error from './Error';
-import Flexbox from './Flexbox';
+import FlexBox from './FlexBox';
 import GenericSkeleton from './GenericSkeleton';
 import Input from './Input';
 import Message from './Message';
@@ -16,7 +16,7 @@ export {
 	Channel,
 	ChannelSkeleton,
 	Error,
-	Flexbox,
+	FlexBox,
 	GenericSkeleton,
 	Input,
 	Message,
