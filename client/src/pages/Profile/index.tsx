@@ -1,8 +1,5 @@
-// eslint-disable-next-line arrow-body-style
-const Profile = (): JSX.Element => {
-	return (
-		<div>Profile</div>
-	);
-};
+const Profile = (): JSX.Element => (
+	<div>Profile</div>
+);
 
 export default Profile;

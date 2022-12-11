@@ -12,7 +12,7 @@ const ContextProvider = ({
 	children
 }: IContextProps) => {
 	const [error, setError]: [IErrorProps | undefined, Function] = useState<IErrorProps | undefined>(undefined);
-	const [loading, setLoading]: [boolean, Function] = useState<boolean>(true);
+	const [loading, setLoading]: [boolean, Function] = useState<boolean>(false);
 
 	const contextValues: IContextValuesProps = {
 		error,

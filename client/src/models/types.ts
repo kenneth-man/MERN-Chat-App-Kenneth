@@ -1,5 +1,6 @@
-export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
-export type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-export type JustifyContent = 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+export type FlexDirection = 'flex-row' | 'flex-row-reverse' | 'flex-col' | 'flex-col-reverse';
+export type AlignItems = 'items-start' | 'items-end' | 'items-center' | 'items-baseline' | 'items-stretch';
+export type JustifyContent = 'justify-start' | 'justify-end' | 'justify-center'
+| 'justify-between' | 'justify-around' | 'justify-evenly';
 export type Button = 'button' | 'submit' | 'reset';
 export type LoadingSkeleton = 'Channel' | 'Generic';

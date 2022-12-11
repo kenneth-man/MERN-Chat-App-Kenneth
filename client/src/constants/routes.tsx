@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { IRoutesProps } from '../models/interfaces';
 import {
 	Error404, ForgotPassword, GlobalChat, GlobalFeed, Home, Login, NearMe,

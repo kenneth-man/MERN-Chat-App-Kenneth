@@ -1,8 +1,5 @@
-// eslint-disable-next-line arrow-body-style
-const PrivateFeed = (): JSX.Element => {
-	return (
-		<div>PrivateFeed</div>
-	);
-};
+const PrivateFeed = (): JSX.Element => (
+	<div>PrivateFeed</div>
+);
 
 export default PrivateFeed;

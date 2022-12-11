@@ -7,7 +7,6 @@ export interface IFlexBoxProps {
 	flexDirection?: FlexDirection;
 	fullWidth?: boolean;
 	fullHeight?: boolean;
-	fullPageSection?: boolean;
 	alignItems?: AlignItems;
 	justifyContent?: JustifyContent;
 	className?: string;

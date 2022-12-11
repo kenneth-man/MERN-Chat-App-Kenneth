@@ -9,8 +9,6 @@ export interface IPageProps {
 	loadingSkeleton: LoadingSkeleton;
     error: IErrorProps | undefined;
     setError: Function;
-	fullWidth?: boolean;
-	fullHeight?: boolean;
 	justifyContent?: JustifyContent;
 	alignItems?: AlignItems;
 	backgroundImage?: string;

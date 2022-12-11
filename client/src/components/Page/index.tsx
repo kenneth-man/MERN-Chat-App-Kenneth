@@ -7,20 +7,22 @@ import { IPageProps } from './IPageProps';
 const Page = ({
 	// eslint-disable-next-line no-unused-vars
 	children, loading, loadingSkeleton, error, setError,
-	fullWidth, fullHeight, justifyContent, alignItems, backgroundImage,
-	backgroundGradient, backgroundSize, backgroundPosition, backgroundAttachment,
-	backgroundRepeat, className
+	justifyContent, alignItems, backgroundImage, backgroundGradient, backgroundSize,
+	backgroundPosition, backgroundAttachment, backgroundRepeat, className
 }: IPageProps): JSX.Element => (
 	<FlexBox
-		fullWidth={fullWidth}
-		fullHeight={fullHeight}
+		flexDirection="flex-col"
+		fullWidth
 		justifyContent={justifyContent}
 		alignItems={alignItems}
-		className={className}
+		className={`
+			flex-1 overflow-y-scroll
+			${className}
+		`}
 		style={{
 			backgroundImage: `
 				linear-gradient(
-					${backgroundGradient || 'rgba(0,0,0,0.5), rgba(0,0,0,0.5)'}
+					${backgroundGradient || 'to bottom right, rgba(0,0,0,1), rgba(0,0,0,0.85)'}
 				),
 				url(${backgroundImage})
 			`,

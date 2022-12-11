@@ -1,11 +1,15 @@
+/* eslint-disable import/no-cycle */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ContextProvider from '../../context';
 import { routes } from '../../constants/routes';
 import { IRoutesProps } from '../../models/interfaces';
+import { FlexBox } from '..';
 
 const App = (): JSX.Element => (
-	<div
-		className="flex flex-col"
+	<FlexBox
+		flexDirection="flex-col"
+		fullWidth
+		fullHeight
 	>
 		<BrowserRouter>
 			<ContextProvider>
@@ -26,7 +30,7 @@ const App = (): JSX.Element => (
 				</Routes>
 			</ContextProvider>
 		</BrowserRouter>
-	</div>
+	</FlexBox>
 );
 
 export default App;

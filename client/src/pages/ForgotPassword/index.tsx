@@ -1,8 +1,5 @@
-// eslint-disable-next-line arrow-body-style
-const ForgotPassword = (): JSX.Element => {
-	return (
-		<div>ForgotPassword</div>
-	);
-};
+const ForgotPassword = (): JSX.Element => (
+	<div>ForgotPassword</div>
+);
 
 export default ForgotPassword;

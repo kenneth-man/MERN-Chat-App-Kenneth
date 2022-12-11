@@ -1,12 +1,13 @@
+/* eslint-disable import/no-cycle */
 import { IContextValuesProps } from '../../context/IContextValuesProps';
 import { useAppContext } from '../../context/useAppContext';
 import { Page } from '../../components';
 import { IPageContainerProps } from './IPageContainerProps';
 
 const PageContainer = ({
-	children, loadingSkeleton, fullWidth, fullHeight, justifyContent,
-	alignItems, backgroundImage, backgroundGradient, backgroundSize,
-	backgroundPosition, backgroundAttachment, backgroundRepeat, className
+	children, loadingSkeleton, justifyContent, alignItems, backgroundImage,
+	backgroundGradient, backgroundSize, backgroundPosition, backgroundAttachment, backgroundRepeat,
+	className
 }: IPageContainerProps): JSX.Element => {
 	const { loading, error, setError }: IContextValuesProps = useAppContext();
 
@@ -16,8 +17,6 @@ const PageContainer = ({
 			loadingSkeleton={loadingSkeleton}
 			error={error}
 			setError={setError}
-			fullWidth={fullWidth}
-			fullHeight={fullHeight}
 			justifyContent={justifyContent}
 			alignItems={alignItems}
 			backgroundImage={backgroundImage}

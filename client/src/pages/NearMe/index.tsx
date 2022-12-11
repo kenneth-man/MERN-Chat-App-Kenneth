@@ -1,8 +1,5 @@
-// eslint-disable-next-line arrow-body-style
-const NearMe = (): JSX.Element => {
-	return (
-		<div>NearMe</div>
-	);
-};
+const NearMe = (): JSX.Element => (
+	<div>NearMe</div>
+);
 
 export default NearMe;
