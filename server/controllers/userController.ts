@@ -3,7 +3,7 @@ import {
 	updateOne,
 	deleteOne
 } from '../utils/controllerUtils';
-import { User } from '../models/userModel';
+import { User } from '../models/user/userModel';
 import { ExpressMiddleware } from '../tsModels/types';
 
 export const getUser: ExpressMiddleware = getOne(User);

@@ -64,7 +64,6 @@ export const getAll = (Model: Model<any>): ExpressMiddleware => catchAsync(
 		req: Request,
 		res: Response
 	) => {
-		// to allow for nested GET reviews on Tour
 		let filter: Object = {};
 
 		if (req.params.tourId) {
