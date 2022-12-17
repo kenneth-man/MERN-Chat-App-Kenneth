@@ -8,7 +8,7 @@ export interface IPageProps {
 	loading: boolean;
 	loadingSkeleton: LoadingSkeleton;
     error: IErrorProps | undefined;
-    setError: Function;
+    setError: (arg: IErrorProps) => void;
 	justifyContent?: JustifyContent;
 	alignItems?: AlignItems;
 	backgroundImage?: string;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
-	createContext, useState
+	createContext, useState, ChangeEvent
 } from 'react';
 import { IContextProps } from './IContextProps';
 import { IContextValuesProps } from './IContextValuesProps';
@@ -11,14 +11,25 @@ export const Context: React.Context<any> = createContext(undefined);
 const ContextProvider = ({
 	children
 }: IContextProps) => {
-	const [error, setError]: [IErrorProps | undefined, Function] = useState<IErrorProps | undefined>(undefined);
-	const [loading, setLoading]: [boolean, Function] = useState<boolean>(false);
+	const [error, setError]: [
+		IErrorProps | undefined,
+		(arg: IErrorProps) => void
+	] = useState<IErrorProps | undefined>(undefined);
+	const [loading, setLoading]: [boolean, (arg: boolean) => void] = useState<boolean>(false);
+
+	const handleOnChange = (
+		event: ChangeEvent<HTMLInputElement>,
+		setState: (arg: any) => void
+	): void => {
+		setState(event.target.value);
+	};
 
 	const contextValues: IContextValuesProps = {
 		error,
 		setError,
 		loading,
-		setLoading
+		setLoading,
+		handleOnChange
 	};
 
 	return (

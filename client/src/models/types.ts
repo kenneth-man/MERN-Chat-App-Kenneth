@@ -4,3 +4,4 @@ export type JustifyContent = 'justify-start' | 'justify-end' | 'justify-center'
 | 'justify-between' | 'justify-around' | 'justify-evenly';
 export type Button = 'button' | 'submit' | 'reset';
 export type LoadingSkeleton = 'Channel' | 'Generic';
+export type CommonLink = 'Anchor' | 'Link' | 'NavLink';

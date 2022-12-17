@@ -1,8 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ChangeEvent } from 'react';
 import { IErrorProps } from '../components/Error/IErrorProps';
 
 export interface IContextValuesProps {
 	error: IErrorProps | undefined;
-	setError: Function;
+	setError: (arg: IErrorProps) => void;
 	loading: boolean;
-	setLoading: Function;
+	setLoading: (arg: boolean) => void;
+	handleOnChange: (
+		event: ChangeEvent<HTMLInputElement>,
+		setState: (arg: any) => void
+	) => void;
 }
