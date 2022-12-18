@@ -1,31 +1,55 @@
 /* eslint-disable import/no-cycle */
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+	BrowserRouter, Routes, Route, Navigate
+} from 'react-router-dom';
 import ContextProvider from '../../context';
 import { routes } from '../../constants/routes';
 import { IRoutesProps } from '../../models/interfaces';
 import { FlexBox } from '..';
+import { IAppProps } from './IAppProps';
 
-const App = (): JSX.Element => (
+const App = ({
+	isUserLoggedIn,
+	setIsUserLoggedIn,
+	returnRoute
+}: IAppProps): JSX.Element => (
 	<FlexBox
 		flexDirection="flex-col"
 		fullWidth
 		fullHeight
 	>
 		<BrowserRouter>
-			<ContextProvider>
+			<ContextProvider
+				isUserLoggedIn={isUserLoggedIn}
+				setIsUserLoggedIn={setIsUserLoggedIn}
+			>
 				<Routes>
 					{
-						routes.map((curr: IRoutesProps) => {
-							const { path, pathName, Element }: IRoutesProps = curr;
-
-							return (
-								<Route
-									key={pathName}
-									path={path}
-									element={<Element />}
-								/>
-							);
-						})
+						isUserLoggedIn
+							? (
+								routes.map((curr: IRoutesProps) => returnRoute(curr))
+							) : (
+								routes
+									.filter((curr: IRoutesProps) => (
+										curr.path === '/Login'
+										|| curr.path === '/Register'
+										|| curr.path === '/ForgotPassword'
+									))
+									.map((curr: IRoutesProps) => returnRoute(curr))
+							)
+					}
+					{
+						!isUserLoggedIn
+						&& (
+							<Route
+								path="*"
+								element={(
+									<Navigate
+										to="/Login"
+									/>
+								)}
+							/>
+						)
 					}
 				</Routes>
 			</ContextProvider>

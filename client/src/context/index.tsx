@@ -9,7 +9,9 @@ import { IErrorProps } from '../components/Error/IErrorProps';
 export const Context: React.Context<any> = createContext(undefined);
 
 const ContextProvider = ({
-	children
+	children,
+	isUserLoggedIn,
+	setIsUserLoggedIn
 }: IContextProps) => {
 	const [error, setError]: [
 		IErrorProps | undefined,
@@ -29,7 +31,9 @@ const ContextProvider = ({
 		setError,
 		loading,
 		setLoading,
-		handleOnChange
+		handleOnChange,
+		isUserLoggedIn,
+		setIsUserLoggedIn
 	};
 
 	return (

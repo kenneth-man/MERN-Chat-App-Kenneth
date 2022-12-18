@@ -11,4 +11,6 @@ export interface IContextValuesProps {
 		event: ChangeEvent<HTMLInputElement>,
 		setState: (arg: any) => void
 	) => void;
+	isUserLoggedIn: boolean;
+	setIsUserLoggedIn: (arg: boolean) => void;
 }
