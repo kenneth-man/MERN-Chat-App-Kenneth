@@ -20,12 +20,14 @@ const Page = ({
 			${className}
 		`}
 		style={{
-			backgroundImage: `
-				linear-gradient(
-					${backgroundGradient || 'to bottom right, rgba(0,0,0,1), rgba(0,0,0,0.85)'}
-				),
-				url(${backgroundImage})
-			`,
+			backgroundImage: backgroundGradient === 'none'
+				? `url(${backgroundImage})`
+				: `
+					linear-gradient(
+						${backgroundGradient || 'to bottom right, rgba(0,0,0,1), rgba(0,0,0,0.85)'}
+					),
+					url(${backgroundImage})
+				`,
 			backgroundSize: backgroundSize || 'cover',
 			backgroundPosition: backgroundPosition || 'center',
 			backgroundAttachment: backgroundAttachment || 'scroll',

@@ -5,20 +5,38 @@ import {
 	FlexBox, Input, Button, CommonLink
 } from '../../components';
 import { ILoginProps } from './ILoginProps';
+import backgroundImage from '../../res/images/gradient-1.png';
 
 const Login = ({
 	loginEmail, setLoginEmail, loginPassword, setLoginPassword, handleOnChange
 }: ILoginProps): JSX.Element => (
 	<PageContainer
 		loadingSkeleton="Generic"
+		backgroundImage={backgroundImage}
+		backgroundGradient="none"
+		className="py-32 px-4 space-y-24"
 	>
-		<FlexBox>
-			<h1>MERN Chat App</h1>
-			<h2>World</h2>
+		<FlexBox
+			flexDirection="flex-col"
+			className="space-y-4"
+		>
+			<h1
+				className="text-6xl font-black"
+			>
+				MERN Chat App
+			</h1>
+			<h2>
+				A Chat app created with MongoDB, Express, React and NodeJs and much more...
+			</h2>
 		</FlexBox>
-		<form>
-			<h1>Log into your existing account</h1>
-			<FlexBox>
+		<form
+			className="space-y-14 w-full"
+		>
+			<h2>Log into your existing account below &#128526;</h2>
+			<FlexBox
+				flexDirection="flex-col"
+				className="space-y-2"
+			>
 				<label
 					htmlFor="Email Login"
 				>
@@ -33,7 +51,10 @@ const Login = ({
 					name="Email Login"
 				/>
 			</FlexBox>
-			<FlexBox>
+			<FlexBox
+				flexDirection="flex-col"
+				className="space-y-2"
+			>
 				<label
 					htmlFor="Password Login"
 				>
@@ -48,14 +69,19 @@ const Login = ({
 					name="Password Login"
 				/>
 			</FlexBox>
-			<FlexBox>
+			<FlexBox
+				flexDirection="flex-col"
+				className="space-y-4"
+			>
 				<Button
 					type="button"
+					className="text-white"
 				>
 					Log In
 				</Button>
 				<Button
 					type="submit"
+					className="text-white"
 				>
 					Forgot Password
 				</Button>
@@ -64,6 +90,7 @@ const Login = ({
 		<CommonLink
 			type="Anchor"
 			url="/ForgotPassword"
+			className="text-white"
 		>
 			Don&apos;t already have an account? Register here!
 		</CommonLink>
