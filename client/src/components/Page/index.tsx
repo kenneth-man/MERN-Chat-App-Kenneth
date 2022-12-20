@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import {
 	FlexBox, Error, ChannelSkeleton, GenericSkeleton
 } from '..';
@@ -16,7 +15,7 @@ const Page = ({
 		justifyContent={justifyContent}
 		alignItems={alignItems}
 		className={`
-			flex-1 overflow-y-scroll
+			flex-1 overflow-y-scroll px-4
 			${className}
 		`}
 		style={{

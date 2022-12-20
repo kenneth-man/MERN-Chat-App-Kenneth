@@ -137,7 +137,8 @@
 			}
 		],
 		"react/function-component-definition": 0,
-		"dot-notation": 0
+		"dot-notation": 0,
+		"import/no-cycle": 0
 	},
 	"ignorePatterns": [
 		"*.svg"

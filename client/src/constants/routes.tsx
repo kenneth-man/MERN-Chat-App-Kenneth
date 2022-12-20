@@ -1,8 +1,10 @@
-/* eslint-disable import/no-cycle */
 import { IRoutesProps } from '../models/interfaces';
 import {
-	Error404, ForgotPassword, GlobalChat, GlobalFeed, Home, Login, NearMe,
-	PrivateChat, PrivateChats, PrivateFeed, Profile, Register
+	ForgotPasswordContainer, LoginContainer, RegisterContainer
+} from '../pageContainers';
+import {
+	Error404, GlobalChat, GlobalFeed, Home, NearMe,
+	PrivateChat, PrivateChats, PrivateFeed, Profile
 } from '../pages';
 
 export const routes: IRoutesProps[] = [
@@ -14,17 +16,17 @@ export const routes: IRoutesProps[] = [
 	{
 		path: '/Login',
 		pathName: 'Login',
-		Element: Login
+		Element: LoginContainer
 	},
 	{
 		path: '/Register',
 		pathName: 'Register',
-		Element: Register
+		Element: RegisterContainer
 	},
 	{
 		path: '/ForgotPassword',
 		pathName: 'Forgot Password',
-		Element: ForgotPassword
+		Element: ForgotPasswordContainer
 	},
 	{
 		path: '/GlobalChat',

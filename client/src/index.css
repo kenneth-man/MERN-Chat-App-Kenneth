@@ -13,7 +13,7 @@
     }
 
     h1 {
-        @apply text-lg font-light sm:text-2xl; 
+        @apply text-2xl font-black sm:text-6xl; 
     }
     
     h2 {

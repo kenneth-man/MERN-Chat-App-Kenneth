@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
-	createContext, useState, ChangeEvent
+	createContext, useState
 } from 'react';
 import { IContextProps } from './IContextProps';
 import { IContextValuesProps } from './IContextValuesProps';
@@ -19,19 +19,11 @@ const ContextProvider = ({
 	] = useState<IErrorProps | undefined>(undefined);
 	const [loading, setLoading]: [boolean, (arg: boolean) => void] = useState<boolean>(false);
 
-	const handleOnChange = (
-		event: ChangeEvent<HTMLInputElement>,
-		setState: (arg: any) => void
-	): void => {
-		setState(event.target.value);
-	};
-
 	const contextValues: IContextValuesProps = {
 		error,
 		setError,
 		loading,
 		setLoading,
-		handleOnChange,
 		isUserLoggedIn,
 		setIsUserLoggedIn
 	};

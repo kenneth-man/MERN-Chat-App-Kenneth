@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { IContextValuesProps } from '../../context/IContextValuesProps';
 import { useAppContext } from '../../context/useAppContext';
 import { Page } from '../../components';

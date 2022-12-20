@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable import/no-cycle */
 import { PageContainer } from '../../componentContainers';
 import {
 	FlexBox, Input, Button, CommonLink
@@ -8,21 +7,19 @@ import { ILoginProps } from './ILoginProps';
 import backgroundImage from '../../res/images/gradient-1.png';
 
 const Login = ({
-	loginEmail, setLoginEmail, loginPassword, setLoginPassword, handleOnChange
+	loginEmail, setLoginEmail, loginPassword, setLoginPassword
 }: ILoginProps): JSX.Element => (
 	<PageContainer
 		loadingSkeleton="Generic"
 		backgroundImage={backgroundImage}
 		backgroundGradient="none"
-		className="py-32 px-4 space-y-24"
+		className="py-32 space-y-24"
 	>
 		<FlexBox
 			flexDirection="flex-col"
 			className="space-y-4"
 		>
-			<h1
-				className="text-6xl font-black"
-			>
+			<h1>
 				MERN Chat App
 			</h1>
 			<h2>
@@ -45,7 +42,6 @@ const Login = ({
 				<Input
 					state={loginEmail}
 					setState={setLoginEmail}
-					handleOnChange={handleOnChange}
 					placeholder="Please enter your email address..."
 					type="text"
 					name="Email Login"
@@ -63,7 +59,6 @@ const Login = ({
 				<Input
 					state={loginPassword}
 					setState={setLoginPassword}
-					handleOnChange={handleOnChange}
 					placeholder="Please enter your password..."
 					type="password"
 					name="Password Login"

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { useState } from 'react';
 import { Route } from 'react-router-dom';
 import { App } from '../../components';

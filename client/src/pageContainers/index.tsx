@@ -1,5 +1,9 @@
+import ForgotPasswordContainer from './ForgotPasswordContainer';
 import LoginContainer from './LoginContainer';
+import RegisterContainer from './RegisterContainer';
 
 export {
-	LoginContainer
+	ForgotPasswordContainer,
+	LoginContainer,
+	RegisterContainer
 };

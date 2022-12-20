@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import App from './App';
 import Button from './Button';
 import Channel from './Channel';

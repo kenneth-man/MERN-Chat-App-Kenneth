@@ -9,12 +9,13 @@ const Button = ({
 		type={type}
 		onClick={onClick}
 		className={`
-			py-2 px-4 rounded-full  uppercase font-thin
-			hover:shadow-md hover:shadow-cyan-100 hover:-translate-y-[3px]
+			py-2 px-4 rounded-full uppercase font-light
+			hover:shadow-md hover:shadow-cyan-200 hover:-translate-y-[2.5px] hover:brightness-95
 			active:shadow-none active:translate-y-0
-			${alt
-				? 'text-white bg-cyan-500 hover:bg-white hover:text-cyan-900'
-				: 'text-cyan-900 bg-white hover:bg-cyan-500 hover:text-white'
+			${
+				alt
+				? 'text-white bg-cyan-500 active:bg-cyan-300'
+				: 'text-cyan-900 bg-white active:bg-cyan-200'
 			}
 			${className}
 		`}
