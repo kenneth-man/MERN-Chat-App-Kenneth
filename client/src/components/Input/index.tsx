@@ -12,8 +12,9 @@ const Input = ({
 		type={type}
 		name={name}
 		className={`
-			w-full rounded-full text-center py-1 sm:w-96 hover:cursor-pointer
-			focus:outline-4 focus:outline-pink-500 focus:outline focus:outline-offset-0
+			w-full rounded-full text-center py-1 outline-offset-0 sm:w-96
+			hover:outline-4 hover:outline-cyan-500 hover:outline hover:cursor-pointer 
+			focus:outline-4 focus:outline-cyan-500 focus:outline 
 			${className}
 		`}
 		style={style}

@@ -5,6 +5,7 @@ import { Button } from '../../models/types';
 export interface IButtonProps {
 	children: ReactNode;
 	type: Button;
+	alt?: boolean;
 	onClick?: MouseEventHandler<HTMLButtonElement>;
 	className?: string;
 	style?: IStyleProps;

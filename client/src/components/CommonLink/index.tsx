@@ -20,6 +20,21 @@ const CommonLink = ({
 			)
 		}
 		{
+			type === 'Clear'
+			&& (
+				<a
+					href={url}
+					className={`
+						rounded-full
+						${className}
+					`}
+					style={style}
+				>
+					{children}
+				</a>
+			)
+		}
+		{
 			type === 'Link'
 			&& (
 				<Link

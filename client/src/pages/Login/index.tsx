@@ -74,17 +74,23 @@ const Login = ({
 				className="space-y-4"
 			>
 				<Button
-					type="button"
+					type="submit"
 					className="text-white"
 				>
 					Log In
 				</Button>
-				<Button
-					type="submit"
-					className="text-white"
+				<CommonLink
+					type="Clear"
+					url="/ForgotPassword"
 				>
-					Forgot Password
-				</Button>
+					<Button
+						type="button"
+						className="text-white"
+						alt
+					>
+						Forgot Password
+					</Button>
+				</CommonLink>
 			</FlexBox>
 		</form>
 		<CommonLink
