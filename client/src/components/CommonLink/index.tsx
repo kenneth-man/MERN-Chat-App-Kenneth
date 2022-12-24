@@ -11,6 +11,8 @@ const CommonLink = ({
 				<a
 					href={url}
 					className={`
+						underline decoration-transparent decoration-solid decoration-1 underline-offset-2
+						hover:decoration-inherit
 						${className}
 					`}
 					style={style}

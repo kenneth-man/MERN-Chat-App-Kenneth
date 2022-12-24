@@ -13,7 +13,7 @@ const Login = ({
 		loadingSkeleton="Generic"
 		backgroundImage={backgroundImage}
 		backgroundGradient="none"
-		className="py-32 space-y-24"
+		className="py-28 space-y-24"
 	>
 		<FlexBox
 			flexDirection="flex-col"
@@ -90,7 +90,7 @@ const Login = ({
 		</form>
 		<CommonLink
 			type="Anchor"
-			url="/ForgotPassword"
+			url="/Register"
 			className="text-white"
 		>
 			Don&apos;t already have an account? Register here!
