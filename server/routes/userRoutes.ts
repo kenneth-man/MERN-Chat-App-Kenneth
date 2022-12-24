@@ -2,7 +2,8 @@ import express, { Router } from 'express';
 import {
 	getUser,
 	updateUser,
-	deleteUser
+	deleteUser,
+	testGetAllUsers
 } from '../controllers/userController';
 
 const router: Router = express.Router();
@@ -17,6 +18,10 @@ const router: Router = express.Router();
 // router.patch('/updatePassword', updatePassword);
 // router.patch('/updateMe', updateMe);
 // router.delete('/deleteMe', deleteMe);
+
+router
+	.route('/test')
+	.get(testGetAllUsers);
 
 router
 	.route('/:id')
