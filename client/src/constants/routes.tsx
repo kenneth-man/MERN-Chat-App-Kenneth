@@ -1,10 +1,10 @@
 import { IRoutesProps } from '../models/interfaces';
 import {
-	ForgotPasswordContainer, LoginContainer, RegisterContainer
+	ForgotPasswordContainer, GlobalChatContainer, GlobalFeedContainer, LoginContainer, NearMeContainer,
+	PrivateChatContainer, PrivateChatsContainer, PrivateFeedContainer, ProfileContainer, RegisterContainer
 } from '../pageContainers';
 import {
-	Error404, GlobalChat, GlobalFeed, Home, NearMe,
-	PrivateChat, PrivateChats, PrivateFeed, Profile
+	Error404, Home
 } from '../pages';
 
 export const routes: IRoutesProps[] = [
@@ -31,37 +31,37 @@ export const routes: IRoutesProps[] = [
 	{
 		path: '/GlobalChat',
 		pathName: 'Global Chat',
-		Element: GlobalChat
+		Element: GlobalChatContainer
 	},
 	{
 		path: '/GlobalFeed',
 		pathName: 'Global Feed',
-		Element: GlobalFeed
+		Element: GlobalFeedContainer
 	},
 	{
 		path: '/PrivateChats',
 		pathName: 'Private Chats',
-		Element: PrivateChats
+		Element: PrivateChatsContainer
 	},
 	{
 		path: '/PrivateChat',
 		pathName: 'Private Chat',
-		Element: PrivateChat
+		Element: PrivateChatContainer
 	},
 	{
 		path: '/PrivateFeed',
 		pathName: 'Private Feed',
-		Element: PrivateFeed
+		Element: PrivateFeedContainer
 	},
 	{
 		path: '/NearMe',
 		pathName: 'Near Me',
-		Element: NearMe
+		Element: NearMeContainer
 	},
 	{
 		path: '/Profile/:name',
 		pathName: 'Profile',
-		Element: Profile
+		Element: ProfileContainer
 	},
 	{
 		path: '*',

@@ -1,21 +1,21 @@
-import {
-	BrowserRouter, Routes, Route, Navigate
-} from 'react-router-dom';
+import { BrowserRouter, Routes } from 'react-router-dom';
 import ContextProvider from '../../context';
-import { routes } from '../../constants/routes';
-import { IRoutesProps } from '../../models/interfaces';
 import { FlexBox } from '..';
 import { IAppProps } from './IAppProps';
+import backgroundImage from '../../res/images/gradient-1.png';
 
 const App = ({
 	isUserLoggedIn,
 	setIsUserLoggedIn,
-	returnRoute
+	appRoutes
 }: IAppProps): JSX.Element => (
 	<FlexBox
 		flexDirection="flex-col"
 		fullWidth
 		fullHeight
+		style={{
+			backgroundImage: `url(${backgroundImage})`
+		}}
 	>
 		<BrowserRouter>
 			<ContextProvider
@@ -23,33 +23,7 @@ const App = ({
 				setIsUserLoggedIn={setIsUserLoggedIn}
 			>
 				<Routes>
-					{
-						isUserLoggedIn
-							? (
-								routes.map((curr: IRoutesProps) => returnRoute(curr))
-							) : (
-								routes
-									.filter((curr: IRoutesProps) => (
-										curr.path === '/Login'
-										|| curr.path === '/Register'
-										|| curr.path === '/ForgotPassword'
-									))
-									.map((curr: IRoutesProps) => returnRoute(curr))
-							)
-					}
-					{
-						!isUserLoggedIn
-						&& (
-							<Route
-								path="*"
-								element={(
-									<Navigate
-										to="/Login"
-									/>
-								)}
-							/>
-						)
-					}
+					{appRoutes}
 				</Routes>
 			</ContextProvider>
 		</BrowserRouter>
