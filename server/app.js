@@ -3,12 +3,11 @@ import express from 'express';
 // import helmet from 'helmet';
 // import mongoSanitize from 'express-mongo-sanitize';
 // import xss from 'xss-clean';
-// import userRouter from '../routes/userRoutes';
+import userRouter from './routes/userRoutes.js';
 // import { AppError } from '../utils/appError';
 // import { errorController } from '../controllers/errorController';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const app: any = express();
+const app = express();
 
 // // adding Security HTTP Headers to req and res
 // app.use(helmet());
@@ -28,15 +27,14 @@ const app: any = express();
 // app.use(xss());
 
 // route middleware
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-app.get('/', (req: any, res: any) => {
+app.get('/test', (req, res) => {
 	try {
 		res.send('works');
 	} catch (err) {
 		res.send(err);
 	}
 });
-// app.use('/api/v1/users', userRouter);
+app.use('/api/v1/users', userRouter);
 
 // // handling all unknown routes
 // app.all('*', (req: Request, res: Response, next: NextFunction) => {

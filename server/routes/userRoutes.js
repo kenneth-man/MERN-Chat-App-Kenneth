@@ -1,12 +1,12 @@
-import express, { Router } from 'express';
+import express from 'express';
 import {
-	getUser,
-	updateUser,
-	deleteUser,
+	// getUser,
+	// updateUser,
+	// deleteUser,
 	testGetAllUsers
-} from '../controllers/userController';
+} from '../controllers/userController.js';
 
-const router: Router = express.Router();
+const router = express.Router();
 
 // router.post('/signup', signup);
 // router.post('/login', login);
@@ -23,10 +23,10 @@ router
 	.route('/test')
 	.get(testGetAllUsers);
 
-router
-	.route('/:id')
-	.get(getUser)
-	.patch(updateUser)
-	.delete(deleteUser);
+// router
+// 	.route('/:id')
+// 	.get(getUser)
+// 	.patch(updateUser)
+// 	.delete(deleteUser);
 
 export default router;
