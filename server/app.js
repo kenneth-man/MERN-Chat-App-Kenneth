@@ -1,39 +1,32 @@
 import express from 'express';
-// import rateLimit, { RateLimitRequestHandler } from 'express-rate-limit';
-// import helmet from 'helmet';
-// import mongoSanitize from 'express-mongo-sanitize';
-// import xss from 'xss-clean';
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import mongoSanitize from 'express-mongo-sanitize';
+import xss from 'xss-clean';
 import userRouter from './routes/userRoutes.js';
 // import { AppError } from '../utils/appError';
 // import { errorController } from '../controllers/errorController';
 
 const app = express();
 
-// // adding Security HTTP Headers to req and res
-// app.use(helmet());
+// adding Security HTTP Headers to req and res
+app.use(helmet());
 
-// // limit 10000 requests from the same IP address per hour
-// const limiter: RateLimitRequestHandler = rateLimit({
-// 	max: 10000,
-// 	windowMs: 60 * 60 * 1000,
-// 	message: 'Too many requests from this IP, please try again in an hour'
-// });
-// app.use('/api', limiter);
+// limit 10000 requests from the same IP address per hour
+const limiter = rateLimit({
+	max: 10000,
+	windowMs: 60 * 60 * 1000,
+	message: 'Too many requests from this IP, please try again in an hour'
+});
+app.use('/api', limiter);
 
-// // data sanitization against NoSQL query injections
-// app.use(mongoSanitize());
+// data sanitization against NoSQL query injections
+app.use(mongoSanitize());
 
-// // data sanitization against XSS (Cross Site Scripting) attacks
-// app.use(xss());
+// data sanitization against XSS (Cross Site Scripting) attacks
+app.use(xss());
 
 // route middleware
-app.get('/test', (req, res) => {
-	try {
-		res.send('works');
-	} catch (err) {
-		res.send(err);
-	}
-});
 app.use('/api/v1/users', userRouter);
 
 // // handling all unknown routes
