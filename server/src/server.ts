@@ -1,17 +1,13 @@
-/* eslint-disable import/no-unresolved */
 /* eslint-disable no-console */
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import config from 'config';
 import { Server } from 'http';
 import app from './app';
 
-// Dotenv loads environment variables from the .env file into process.env
-// loads the environment variables regardless of what system you are developing on
-dotenv.config({ path: '../../.env' });
-
+// 'dotenv' wasn't working, using 'config' for env variables instead
 mongoose
 	.connect(
-		process.env.DATABASE,
+		config.get<string>('database'),
 		{
 			useNewUrlParser: true,
 			useCreateIndex: true,
@@ -21,8 +17,8 @@ mongoose
 	);
 
 const server: Server = app.listen(
-	process.env.PORT,
-	() => console.log(`App running on port ${process.env.PORT}`)
+	config.get<string>('port'),
+	() => console.log(`App running on port ${config.get<string>('port')}`)
 );
 
 process.on(
