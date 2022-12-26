@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
 		name: {
 			type: String,
 			required: [true, 'A user must have a name'],
-			validate: [validator.isAlpha, 'Name must consist of only letters']
+			validate: [validator.isAlpha, 'Names must consist of only letters']
 		},
 		email: {
 			type: String,
@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
 		},
 		role: {
 			type: String,
-			enum: ['user', 'guide', 'lead-guide', 'admin'],
+			enum: ['user', 'admin'],
 			default: 'user'
 		},
 		password: {
@@ -51,11 +51,6 @@ const userSchema = new mongoose.Schema(
 		},
 		passwordResetExpires: {
 			type: Date
-		},
-		active: {
-			type: Boolean,
-			default: true,
-			select: false
 		}
 	}
 );
@@ -81,17 +76,7 @@ userSchema.pre('save', function(next) {
 	next();
 });
 
-userSchema.pre(/^find/, function(next) {
-	this.find({
-		active: {
-			$ne: false
-		}
-	});
-
-	next();
-});
-
-// instance method; available on all 'User' documents
+// an instance method available on all 'User' documents
 userSchema.methods.correctPassword = async function(candidatePassword, userPassword) {
 	return await bcrypt.compare(candidatePassword, userPassword);
 };

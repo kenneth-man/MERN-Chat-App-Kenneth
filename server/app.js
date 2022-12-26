@@ -4,8 +4,8 @@ import helmet from 'helmet';
 import mongoSanitize from 'express-mongo-sanitize';
 import xss from 'xss-clean';
 import userRouter from './routes/userRoutes.js';
-// import { AppError } from '../utils/appError';
-// import { errorController } from '../controllers/errorController';
+// import AppError from './utils/appError.js';
+import errorController from './controllers/errorController.js';
 
 const app = express();
 
@@ -40,7 +40,7 @@ app.use('/api/v1/users', userRouter);
 // 	);
 // });
 
-// // error handling middleware
-// app.use(errorController);
+// error handling middleware
+app.use(errorController);
 
 export default app;

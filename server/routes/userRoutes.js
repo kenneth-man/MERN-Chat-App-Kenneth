@@ -1,5 +1,8 @@
 import express from 'express';
 import {
+	protect
+} from '../controllers/authController.js';
+import {
 	getUser,
 	updateUser,
 	deleteUser
@@ -12,11 +15,9 @@ const router = express.Router();
 // router.post('/forgotPassword', forgotPassword);
 // router.patch('/resetPassword/:token', resetPassword);
 
-// router.use(protect);
+router.use(protect);
 
 // router.patch('/updatePassword', updatePassword);
-// router.patch('/updateMe', updateMe);
-// router.delete('/deleteMe', deleteMe);
 
 router
 	.route('/:id')

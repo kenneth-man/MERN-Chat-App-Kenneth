@@ -7,8 +7,6 @@ import APIFeatures from './apiFeatures.js';
 export const createOne = (Model) => catchAsync(async (req, res, next) => {
 	const document = await Model.create(req.body);
 
-	// sending back json in the res; 'status()' sends a code with the res
-	// '.json()' ends the 'req res cycle'
 	res
 		.status(201)
 		.json({
@@ -43,27 +41,16 @@ export const getOne = (Model, populateOptions) => catchAsync(async (req, res, ne
 		});
 });
 
-export const getAll = (Model) => catchAsync(async (req, res, next) => {
-	// to allow for nested GET reviews on Tour
-	let filter = {};
-
-	if (req.params.tourId) {
-		filter = {
-			tour: req.params.tourId
-		};
-	};
-
-	// BUILD QUERY
-	const features = new APIFeatures(Model.find(filter), req.query)
+// 'Model.find({})' means 'match all documents'
+export const getAll = (Model, queryFilter = {}) => catchAsync(async (req, res, next) => {
+	const features = new APIFeatures(Model.find(queryFilter), req.query)
 		.filter()
 		.sort()
 		.limitFields()
 		.paginate();
 
-	// EXECUTE QUERY
 	const document = await features.query;
 
-	// SEND RESPONSE
 	res
 		.status(200)
 		.json({

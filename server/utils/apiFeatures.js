@@ -4,22 +4,20 @@ class APIFeatures {
 		this.queryString = queryString;
 	}
 
+	// exclude specific field names from being in a queries parameter; will be used differently than regular query parameters
 	filter() {
 		const queryObj = { ...this.queryString };
 
-		// we want to exclude specific fields names from being queries parameter
-		// because they will be used differently than regular query parameters
 		const excludedFields = ['page', 'sort', 'limit', 'fields'];
 
-		// 'delete' operator; for each value in 'excludedFields', delete key value pair from 'queryObj' if it exists
+		// delete key value pair from 'queryObj' if it exists
 		excludedFields.forEach(curr => delete queryObj[curr]);
 
 		let queryStr = JSON.stringify(queryObj);
 
-		// regex to replace operators to operators with dollar sign; e.g. 'gte' becomes '$gte'
-		// mongoose requires '$' dollar sign for operators
-		// e.g. example url... 127.0.0.1:3000/api/v1/tours?duration[gte]=5&price[lt]=1500
-		// with an example filter object... { duration: { $gte: 5 }, price: { $lt: 1500 } };
+		// regex to add dollar sign for matching strings; e.g. 'gte' becomes '$gte'
+		// mongoose requires '$' dollar sign for operators; e.g. url... 127.0.0.1:3000/api/v1/tours?duration[gte]=5&price[lt]=1500
+		// e.g. filter object... { duration: { $gte: 5 }, price: { $lt: 1500 } };
 		queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, matchingStr => `$${matchingStr}`);
 
 		// using a mongoose 'query method', which all return a Query Object https://mongoosejs.com/docs/queries.html
@@ -34,10 +32,9 @@ class APIFeatures {
 
 	sort() {
 		if (this.queryString.sort) {
-			// if multiple arguments in query url are input (sorted in order ltr)
-			// mongoose requires spaces instead of commas; using commas as we can't put spaces in a url string
-			// e.g. example url... 127.0.0.1:3000/api/v1/tours?sort=-price,ratingsAverage
-			// but mongoose sort requires spaces... this.query.sort(price ratingsAverage);
+			// if multiple arguments are in a query url; mongoose requires spaces instead of commas; using commas as we can't put spaces in a url string
+			// e.g. url... 127.0.0.1:3000/api/v1/tours?sort=-price,ratingsAverage
+			// but mongoose sort requires spaces; e.g. this.query.sort(price ratingsAverage);
 			const sortBy = this.queryString.sort.split(',').join(' ');
 
 			this.query = this.query.sort(sortBy);

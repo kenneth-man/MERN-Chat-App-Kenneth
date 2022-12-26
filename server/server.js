@@ -5,7 +5,7 @@ import app from './app.js';
 // 'dotenv' wasn't working, so using 'config' for env variables instead
 mongoose
 	.connect(
-		config.get('database'),
+		config.get('DATABASE'),
 		{
 			useNewUrlParser: true,
 			useCreateIndex: true,
@@ -15,8 +15,8 @@ mongoose
 	);
 
 const server = app.listen(
-	config.get('port'),
-	() => console.log(`App running on port ${config.get('port')}`)
+	config.get('PORT'),
+	() => console.log(`App running on port ${config.get('PORT')}`)
 );
 
 process.on(

@@ -1,5 +1,4 @@
 class AppError extends Error {
-	// constructor called when an instance is created of this class
 	constructor(message, statusCode) {
 		// when extending a parent class, call 'super()' to call parent constructor
 		// e.g. similar to calling 'Error(message)'; sets 'message' property which this class has access to
