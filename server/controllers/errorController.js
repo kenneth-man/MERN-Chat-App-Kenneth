@@ -107,9 +107,12 @@ const setErrorObject = (error, res) => {
 			status: 'Error',
 			message: 'Something went very wrong'
 		});
+
+	console.log(error);
 };
 
-// by specifying 4 parameters, express recognizes this as an error handling middleware function
+// by specifying 4 parameters, express recognizes this as a error handling middleware function
+// whenever calling 'next([ERROR OBJECT])', express ignores all middleware and goes straight to this error handling middleware
 export default (error, req, res, next) => {
 	setErrorObject(error, res);
 };

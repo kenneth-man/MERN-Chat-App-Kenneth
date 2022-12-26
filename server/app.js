@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import mongoSanitize from 'express-mongo-sanitize';
 import xss from 'xss-clean';
 import userRouter from './routes/userRoutes.js';
-// import AppError from './utils/appError.js';
+import AppError from './utils/appError.js';
 import errorController from './controllers/errorController.js';
 
 const app = express();
@@ -20,6 +20,11 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
+// body parser to read data from body into req.body
+app.use(express.json({
+	limit: '10kb'
+}));
+
 // data sanitization against NoSQL query injections
 app.use(mongoSanitize());
 
@@ -29,16 +34,15 @@ app.use(xss());
 // route middleware
 app.use('/api/v1/users', userRouter);
 
-// // handling all unknown routes
-// app.all('*', (req: Request, res: Response, next: NextFunction) => {
-// 	// passing an argument into 'next()' skips all subsequent middleware and goes to the error handling middleware
-// 	next(
-// 		new AppError(
-// 			`Can't find ${req.originalUrl} on this server`,
-// 			404
-// 		)
-// 	);
-// });
+// handling unknown routes
+app.all('*', (req, res, next) => {
+	next(
+		new AppError(
+			`Route ${req.originalUrl} doesn't exist on this server`,
+			404
+		)
+	);
+});
 
 // error handling middleware
 app.use(errorController);
