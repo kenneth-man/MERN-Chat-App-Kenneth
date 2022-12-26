@@ -2,7 +2,7 @@ import { IErrorProps } from '../components/Error/IErrorProps';
 
 export interface IContextValuesProps {
 	error: IErrorProps | undefined;
-	setError: (arg: IErrorProps) => void;
+	setError: (arg: IErrorProps | undefined) => void;
 	loading: boolean;
 	setLoading: (arg: boolean) => void;
 	isUserLoggedIn: boolean;

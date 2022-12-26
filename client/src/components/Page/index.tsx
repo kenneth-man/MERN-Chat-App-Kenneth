@@ -4,7 +4,6 @@ import {
 import { IPageProps } from './IPageProps';
 
 const Page = ({
-	// eslint-disable-next-line no-unused-vars
 	children, loading, loadingSkeleton, error, setError,
 	justifyContent, alignItems, backgroundImage, backgroundGradient, backgroundSize,
 	backgroundPosition, backgroundAttachment, backgroundRepeat, className
@@ -36,7 +35,10 @@ const Page = ({
 		{
 			error && !loading
 			&& (
-				<Error />
+				<Error
+					error={error}
+					setError={setError}
+				/>
 			)
 		}
 		{

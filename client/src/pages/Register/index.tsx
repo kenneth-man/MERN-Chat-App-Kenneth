@@ -5,18 +5,21 @@ import { IRegisterProps } from './IRegisterProps';
 import backgroundImage from '../../res/images/gradient-3.jpg';
 
 const Register = ({
+	registerName,
+	setRegisterName,
 	registerEmail,
 	setRegisterEmail,
 	registerPassword,
 	setRegisterPassword,
 	registerPasswordConfirm,
-	setRegisterPasswordConfirm
+	setRegisterPasswordConfirm,
+	handleSignupOnSubmit
 }: IRegisterProps): JSX.Element => (
 	<PageContainer
 		loadingSkeleton="Generic"
 		backgroundImage={backgroundImage}
 		backgroundGradient="none"
-		className="py-32 space-y-24"
+		className="py-28 space-y-24"
 	>
 		<FlexBox
 			flexDirection="flex-col"
@@ -32,7 +35,25 @@ const Register = ({
 		</FlexBox>
 		<form
 			className="space-y-14 w-full flex flex-col items-center"
+			onSubmit={handleSignupOnSubmit}
 		>
+			<FlexBox
+				flexDirection="flex-col"
+				className="space-y-2"
+			>
+				<label
+					htmlFor="Name Register"
+				>
+					Name
+				</label>
+				<Input
+					state={registerName}
+					setState={setRegisterName}
+					placeholder="Please enter your username..."
+					type="text"
+					name="Name Register"
+				/>
+			</FlexBox>
 			<FlexBox
 				flexDirection="flex-col"
 				className="space-y-2"

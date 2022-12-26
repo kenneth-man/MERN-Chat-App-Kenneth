@@ -15,7 +15,7 @@ const ContextProvider = ({
 }: IContextProps) => {
 	const [error, setError]: [
 		IErrorProps | undefined,
-		(arg: IErrorProps) => void
+		(arg: IErrorProps | undefined) => void
 	] = useState<IErrorProps | undefined>(undefined);
 	const [loading, setLoading]: [boolean, (arg: boolean) => void] = useState<boolean>(false);
 
