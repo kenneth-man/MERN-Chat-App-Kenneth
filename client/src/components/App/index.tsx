@@ -5,8 +5,8 @@ import { IAppProps } from './IAppProps';
 import backgroundImage from '../../res/images/gradient-1.png';
 
 const App = ({
-	isUserLoggedIn,
-	setIsUserLoggedIn,
+	userToken,
+	setUserToken,
 	appRoutes
 }: IAppProps): JSX.Element => (
 	<FlexBox
@@ -19,8 +19,8 @@ const App = ({
 	>
 		<BrowserRouter>
 			<ContextProvider
-				isUserLoggedIn={isUserLoggedIn}
-				setIsUserLoggedIn={setIsUserLoggedIn}
+				userToken={userToken}
+				setUserToken={setUserToken}
 			>
 				<Routes>
 					{appRoutes}

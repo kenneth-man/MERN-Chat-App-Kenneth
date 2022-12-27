@@ -1,5 +1,5 @@
 export interface IAppProps {
-	isUserLoggedIn: boolean;
-	setIsUserLoggedIn: (arg: boolean) => void;
+	userToken: string | null;
+	setUserToken: (arg: string | null) => void;
 	appRoutes: JSX.Element[];
 }

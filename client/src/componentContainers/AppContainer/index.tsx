@@ -8,14 +8,18 @@ import { routes } from '../../constants/routes';
 import { filterRoutePaths } from '../../constants/filterRoutePaths';
 
 const AppContainer = (): JSX.Element => {
-	const [isUserLoggedIn, setIsUserLoggedIn]: [boolean, (arg: boolean) => void] = useState<boolean>(false);
+	// if 'userToken' property doesn't exist in localStorage, the user is not logged in
+	const [userToken, setUserToken]: [
+		string | null,
+		(arg: string | null) => void
+	] = useState<string | null>(window.localStorage.getItem('userToken'));
 	const [appRoutes, setAppRoutes]: [JSX.Element[], (arg: JSX.Element[]) => void] = useState<JSX.Element[]>([]);
 
 	const returnRoute = (arg: IRoutesProps): JSX.Element => {
 		const { path, pathName, Element }: IRoutesProps = arg;
 
 		// redirect to '/' if logged in user tries to access '/Login', '/Register' or '/ForgotPassword'
-		if (isUserLoggedIn && filterRoutePaths.includes(path)) {
+		if (userToken && filterRoutePaths.includes(path)) {
 			return (
 				<Route
 					key={pathName}
@@ -38,10 +42,10 @@ const AppContainer = (): JSX.Element => {
 		);
 	};
 
-	const filterRoutes = (isUserLoggedIn: boolean): JSX.Element[] => {
+	const filterRoutes = (userToken: string | null): JSX.Element[] => {
 		let routeData: IRoutesProps[] = routes;
 
-		if (!isUserLoggedIn) {
+		if (!userToken) {
 			routeData = routes.filter(
 				(curr: IRoutesProps) => filterRoutePaths.some(
 					(path: string) => path === curr.path
@@ -53,7 +57,7 @@ const AppContainer = (): JSX.Element => {
 
 		// redirect to '/Login' if a non logged in user tries to access any page other than
 		// '/Login', '/Register' or '/ForgotPassword'
-		if (!isUserLoggedIn) {
+		if (!userToken) {
 			routeElements.push(
 				<Route
 					key="Redirect"
@@ -71,13 +75,14 @@ const AppContainer = (): JSX.Element => {
 	};
 
 	useEffect(() => {
-		setAppRoutes(filterRoutes(isUserLoggedIn));
-	}, [isUserLoggedIn]);
+		console.log('TOKEN', userToken);
+		setAppRoutes(filterRoutes(userToken));
+	}, [userToken]);
 
 	return (
 		<App
-			isUserLoggedIn={isUserLoggedIn}
-			setIsUserLoggedIn={setIsUserLoggedIn}
+			userToken={userToken}
+			setUserToken={setUserToken}
 			appRoutes={appRoutes}
 		/>
 	);

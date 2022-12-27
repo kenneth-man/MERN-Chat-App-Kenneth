@@ -7,7 +7,9 @@ import { Register } from '../../pages';
 import { Utils } from '../../utils';
 
 const RegisterContainer = (): JSX.Element => {
-	const { setError, setLoading }: IContextValuesProps = useAppContext();
+	const {
+		setError, setLoading, navigate, setUserToken
+	}: IContextValuesProps = useAppContext();
 	const [registerName, setRegisterName]: [string, (arg: string) => void] = useState<string>('');
 	const [registerEmail, setRegisterEmail]: [string, (arg: string) => void] = useState<string>('');
 	const [registerPassword, setRegisterPassword]: [string, (arg: string) => void] = useState<string>('');
@@ -17,7 +19,7 @@ const RegisterContainer = (): JSX.Element => {
 		try {
 			setLoading(true);
 
-			await axios({
+			const response: any = await axios({
 				method: 'post',
 				url: '/api/v1/users/signup',
 				data: {
@@ -28,12 +30,16 @@ const RegisterContainer = (): JSX.Element => {
 				}
 			});
 
+			Utils.handleUpdateToken(response.data.token, setUserToken);
+
+			navigate('/');
+
 			setLoading(false);
 		} catch (error: any) {
 			Utils.handleError(
 				{
-					message: error.message,
-					code: error.code
+					message: error.response.data.message,
+					code: error.response.status
 				},
 				setError,
 				setLoading,
@@ -44,7 +50,6 @@ const RegisterContainer = (): JSX.Element => {
 					setRegisterPasswordConfirm
 				]
 			);
-			console.log(error);
 		}
 	};
 

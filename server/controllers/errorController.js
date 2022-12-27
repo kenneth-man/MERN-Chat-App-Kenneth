@@ -99,13 +99,11 @@ const setErrorObject = (error, res) => {
 		return;
 	}
 
-	// unknown error: send generic error message to client
-	// don't leak error details or vulnerabilities
 	res
 		.status(500)
 		.json({
 			status: 'Error',
-			message: 'Something went very wrong'
+			message: error._message || 'Something went very wrong'
 		});
 
 	console.log(error);

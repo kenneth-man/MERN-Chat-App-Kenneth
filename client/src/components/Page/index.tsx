@@ -14,7 +14,7 @@ const Page = ({
 		justifyContent={justifyContent}
 		alignItems={alignItems}
 		className={`
-			flex-1 overflow-y-scroll px-4
+			flex-1 overflow-y-scroll px-4 relative
 			${className}
 		`}
 		style={{
