@@ -75,7 +75,6 @@ const AppContainer = (): JSX.Element => {
 	};
 
 	useEffect(() => {
-		console.log('TOKEN', userToken);
 		setAppRoutes(filterRoutes(userToken));
 	}, [userToken]);
 
