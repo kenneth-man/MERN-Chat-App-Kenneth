@@ -1,8 +1,10 @@
 import App from './App';
 import Button from './Button';
 import Channel from './Channel';
-import ChannelSkeleton from './ChannelSkeleton';
+import ChannelChatSkeleton from './ChannelChatSkeleton';
+import ChannelFeedSkeleton from './ChannelFeedSkeleton';
 import Error from './Error';
+import FeedSkeleton from './FeedSkeleton';
 import FlexBox from './FlexBox';
 import GenericSkeleton from './GenericSkeleton';
 import Input from './Input';
@@ -15,8 +17,10 @@ export {
 	App,
 	Button,
 	Channel,
-	ChannelSkeleton,
+	ChannelChatSkeleton,
+	ChannelFeedSkeleton,
 	Error,
+	FeedSkeleton,
 	FlexBox,
 	GenericSkeleton,
 	Input,

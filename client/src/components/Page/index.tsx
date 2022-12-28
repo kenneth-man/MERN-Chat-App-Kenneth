@@ -1,5 +1,5 @@
 import {
-	FlexBox, Error, ChannelSkeleton, GenericSkeleton
+	FlexBox, Error, ChannelChatSkeleton, ChannelFeedSkeleton, GenericSkeleton
 } from '..';
 import { IPageProps } from './IPageProps';
 
@@ -42,9 +42,15 @@ const Page = ({
 			)
 		}
 		{
-			loading && loadingSkeleton === 'Channel'
+			loading && loadingSkeleton === 'ChannelChat'
 			&& (
-				<ChannelSkeleton />
+				<ChannelChatSkeleton />
+			)
+		}
+		{
+			loading && loadingSkeleton === 'ChannelFeed'
+			&& (
+				<ChannelFeedSkeleton />
 			)
 		}
 		{
