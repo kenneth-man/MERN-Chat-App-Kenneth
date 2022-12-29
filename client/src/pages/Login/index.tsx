@@ -7,7 +7,7 @@ import { ILoginProps } from './ILoginProps';
 import backgroundImage from '../../res/images/gradient-1.png';
 
 const Login = ({
-	loginEmail, setLoginEmail, loginPassword, setLoginPassword
+	loginEmail, setLoginEmail, loginPassword, setLoginPassword, handleLoginOnSubmit
 }: ILoginProps): JSX.Element => (
 	<PageContainer
 		loadingSkeleton="Generic"
@@ -28,6 +28,7 @@ const Login = ({
 		</FlexBox>
 		<form
 			className="space-y-14 w-full"
+			onSubmit={handleLoginOnSubmit}
 		>
 			<h2>Log into your existing account below &#128526;</h2>
 			<FlexBox

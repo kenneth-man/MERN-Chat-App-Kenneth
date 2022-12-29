@@ -98,7 +98,7 @@ export const login = catchAsync(async (req, res, next) => {
 
 	createAndSendToken(user, 200, res);
 
-	next()
+	next();
 });
 
 // protect a route; allow access if current user is logged in

@@ -3,4 +3,5 @@ export interface ILoginProps {
 	setLoginEmail: (arg: string) => void;
 	loginPassword: string;
 	setLoginPassword: (arg: string) => void;
+	handleLoginOnSubmit: () => Promise<void>;
 }
