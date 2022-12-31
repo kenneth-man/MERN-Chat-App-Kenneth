@@ -3,6 +3,7 @@ import Button from './Button';
 import Channel from './Channel';
 import ChannelChatSkeleton from './ChannelChatSkeleton';
 import ChannelFeedSkeleton from './ChannelFeedSkeleton';
+import ChatSkeleton from './ChatSkeleton';
 import Error from './Error';
 import FeedSkeleton from './FeedSkeleton';
 import FlexBox from './FlexBox';
@@ -19,6 +20,7 @@ export {
 	Channel,
 	ChannelChatSkeleton,
 	ChannelFeedSkeleton,
+	ChatSkeleton,
 	Error,
 	FeedSkeleton,
 	FlexBox,

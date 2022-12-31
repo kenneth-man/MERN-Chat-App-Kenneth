@@ -1,8 +1,7 @@
 import {
 	Skeleton, Stack
 } from '@mui/material';
-import FeedSkeleton from '../FeedSkeleton';
-import FlexBox from '../FlexBox';
+import { FeedSkeleton, FlexBox } from '..';
 
 const GenericSkeleton = (): JSX.Element => (
 	<Stack

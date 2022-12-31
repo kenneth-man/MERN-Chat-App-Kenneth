@@ -5,3 +5,4 @@ export type JustifyContent = 'justify-start' | 'justify-end' | 'justify-center'
 export type Button = 'button' | 'submit' | 'reset';
 export type LoadingSkeleton = 'ChannelFeed' | 'ChannelChat' | 'Generic';
 export type CommonLink = 'Anchor' | 'Clear' | 'Link' | 'NavLink';
+export type ChatSkeletonVariant = 'Left' | 'Right';
