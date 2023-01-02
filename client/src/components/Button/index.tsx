@@ -3,7 +3,8 @@
 import { IButtonProps } from './IButtonProps';
 
 const Button = ({
-	children, type, alt, onClick, className, style
+	children, type, alt, onClick, className,
+	style
 }: IButtonProps): JSX.Element => (
 	<button
 		type={type}

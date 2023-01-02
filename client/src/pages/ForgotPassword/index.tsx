@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { PageContainer } from '../../componentContainers';
 import { FlexBox, Input, Button } from '../../components';
@@ -7,7 +8,8 @@ import backgroundImage from '../../res/images/gradient-2.png';
 const ForgotPassword = ({
 	sendingEmail,
 	setSendingEmail,
-	emailSent
+	emailSent,
+	handleEmailSend
 }: IForgotPassword): JSX.Element => (
 	<PageContainer
 		justifyContent="justify-center"
@@ -16,53 +18,66 @@ const ForgotPassword = ({
 		backgroundGradient="none"
 		className="py-64"
 	>
-		{
-			emailSent
-				? (
-					<h1>sent password reset email</h1>
-				) : (
-					<FlexBox
-						flexDirection="flex-col"
-						className="space-y-20"
-					>
-						<FlexBox
-							flexDirection="flex-col"
-							className="space-y-4"
-						>
+		<FlexBox
+			flexDirection="flex-col"
+			className="space-y-20"
+		>
+			{
+				emailSent
+					? (
+						<>
 							<h1>
-								Forgot your password?
+								Email Sent!
 							</h1>
 							<h2>
-								Please enter the email address you&apos;d like
-								your password reset information to be sent to...
+								Please check your email&apos;s inbox for instructions on
+								how to reset your account&apos;s password
+								<br />
+								The email was sent to <strong>{sendingEmail}</strong>
 							</h2>
-						</FlexBox>
-						<FlexBox
-							flexDirection="flex-col"
-							className="space-y-4"
-						>
-							<label
-								htmlFor="Forgot Password Email"
+						</>
+					) : (
+						<>
+							<FlexBox
+								flexDirection="flex-col"
+								className="space-y-4"
 							>
-								Email Address
-							</label>
-							<Input
-								state={sendingEmail}
-								setState={setSendingEmail}
-								placeholder="Please enter your email address..."
-								type="text"
-								name="Forgot Password Email"
-							/>
-							<Button
-								type="button"
-								className="text-white"
+								<h1>
+									Forgot your password?
+								</h1>
+								<h2>
+									Please enter the email address you&apos;d like
+									your password reset information to be sent to...
+								</h2>
+							</FlexBox>
+							<FlexBox
+								flexDirection="flex-col"
+								className="space-y-4"
 							>
-								Send token
-							</Button>
-						</FlexBox>
-					</FlexBox>
-				)
-		}
+								<label
+									htmlFor="Forgot Password Email"
+								>
+									Email Address
+								</label>
+								<Input
+									state={sendingEmail}
+									setState={setSendingEmail}
+									placeholder="Please enter your email address..."
+									type="text"
+									name="Forgot Password Email"
+								/>
+								<Button
+									type="button"
+									className="text-white"
+									onClick={handleEmailSend}
+								>
+									Send token
+								</Button>
+							</FlexBox>
+						</>
+					)
+			}
+		</FlexBox>
 	</PageContainer>
 );
 

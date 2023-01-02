@@ -9,6 +9,7 @@
 -	Express
 -	MongoDB
 -	Mongoose
+-	NodeMailer (with MailTrap)
 -	Tailwind
 -	Material UI + Icons
 -	Axios

@@ -10,6 +10,7 @@ import PrivateChats from './PrivateChats';
 import PrivateFeed from './PrivateFeed';
 import Profile from './Profile';
 import Register from './Register';
+import ResetPassword from './ResetPassword';
 
 export {
 	Error404,
@@ -23,5 +24,6 @@ export {
 	PrivateChats,
 	PrivateFeed,
 	Profile,
-	Register
+	Register,
+	ResetPassword
 };

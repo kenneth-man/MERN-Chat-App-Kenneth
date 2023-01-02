@@ -18,8 +18,9 @@ const AppContainer = (): JSX.Element => {
 	const returnRoute = (arg: IRoutesProps): JSX.Element => {
 		const { path, pathName, Element }: IRoutesProps = arg;
 
-		// redirect to '/' if logged in user tries to access '/Login', '/Register' or '/ForgotPassword'
-		if (userToken && filterRoutePaths.includes(path)) {
+		// redirect to '/' if a logged in user tries to access '/Login', '/Register' or '/ForgotPassword'
+		// allow a logged in user to access '/ResetPassword'
+		if (userToken && filterRoutePaths.includes(path) && path !== '/ResetPassword') {
 			return (
 				<Route
 					key={pathName}
@@ -56,7 +57,7 @@ const AppContainer = (): JSX.Element => {
 		const routeElements: JSX.Element[] = routeData.map((curr: IRoutesProps) => returnRoute(curr));
 
 		// redirect to '/Login' if a non logged in user tries to access any page other than
-		// '/Login', '/Register' or '/ForgotPassword'
+		// '/Login', '/Register', '/ForgotPassword' or '/ResetPassword
 		if (!userToken) {
 			routeElements.push(
 				<Route

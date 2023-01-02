@@ -8,6 +8,7 @@ import PrivateChatsContainer from './PrivateChatsContainer';
 import PrivateFeedContainer from './PrivateFeedContainer';
 import ProfileContainer from './ProfileContainer';
 import RegisterContainer from './RegisterContainer';
+import ResetPasswordContainer from './ResetPasswordContainer';
 
 export {
 	ForgotPasswordContainer,
@@ -19,5 +20,6 @@ export {
 	PrivateChatsContainer,
 	PrivateFeedContainer,
 	ProfileContainer,
-	RegisterContainer
+	RegisterContainer,
+	ResetPasswordContainer
 };

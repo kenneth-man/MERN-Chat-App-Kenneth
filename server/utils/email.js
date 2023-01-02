@@ -1,11 +1,12 @@
 import nodemailer from 'nodemailer';
 import config from 'config';
+import { generateEmailText, generateEmailHTML } from './emailContents.js';
 
 const sendEmail = async (options) => {
 	const {
 		email,
 		subject,
-		message
+		resetURL
 	} = options;
 
 	// 1) Create a transporter
@@ -24,9 +25,9 @@ const sendEmail = async (options) => {
 	const mailOptions = {
 		from: config.get('EMAIL_FROM'),
 		to: email,
-		subject: subject,
-		text: message
-		// html:
+		subject,
+		text: generateEmailText(resetURL),
+		html: generateEmailHTML(resetURL) 
 	}
 
 	// 3) Send the email

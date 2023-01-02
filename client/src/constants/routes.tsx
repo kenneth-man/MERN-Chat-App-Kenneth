@@ -1,7 +1,8 @@
 import { IRoutesProps } from '../models/interfaces';
 import {
 	ForgotPasswordContainer, GlobalChatContainer, GlobalFeedContainer, LoginContainer, NearMeContainer,
-	PrivateChatContainer, PrivateChatsContainer, PrivateFeedContainer, ProfileContainer, RegisterContainer
+	PrivateChatContainer, PrivateChatsContainer, PrivateFeedContainer, ProfileContainer, RegisterContainer,
+	ResetPasswordContainer
 } from '../pageContainers';
 import {
 	Error404, Home
@@ -57,6 +58,11 @@ export const routes: IRoutesProps[] = [
 		path: '/NearMe',
 		pathName: 'Near Me',
 		Element: NearMeContainer
+	},
+	{
+		path: '/ResetPassword',
+		pathName: 'Reset Password',
+		Element: ResetPasswordContainer
 	},
 	{
 		path: '/Profile/:name',
