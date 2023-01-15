@@ -60,7 +60,7 @@ export const routes: IRoutesProps[] = [
 		Element: NearMeContainer
 	},
 	{
-		path: '/ResetPassword',
+		path: '/ResetPassword/:token',
 		pathName: 'Reset Password',
 		Element: ResetPasswordContainer
 	},
